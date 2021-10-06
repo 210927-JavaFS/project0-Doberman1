@@ -36,21 +36,24 @@ public class User {
 	}
 	
 	public void runUser(){
-		System.out.println("You can deposit resources, check your inventory,\nor see what you can make with your current inventory.");
-		System.out.println("To deposit, type deposit.\nTo check your inventory, type inventory.\nTo see what you can craft, type craft.\nTo exit the bank, type exit.");
+		System.out.println("You can deposit resources, withdraw resources, check your inventory,\nor see what you can make with your current inventory.");
+		System.out.println("To deposit, type deposit.\nTo withdraw, type withdraw.\nTo check your inventory, type inventory.\nTo see what you can craft, type craft.\nTo exit the bank, type exit.");
 		
 		while(!(input.equalsIgnoreCase("exit"))){
 			input = sc.nextLine();
 			if(input.equalsIgnoreCase("exit")) {
 				break;	
 			}else if(input.equalsIgnoreCase("deposit")) {
-				userInventory.checkInventory();
+				userInventory.deposit();
 				
 			}else if(input.equalsIgnoreCase("inventory")) {
 				userInventory.checkInventory();
 						
 			}else if(input.equalsIgnoreCase("craft")) {
 				userInventory.checkCraft();
+				
+			}else if(input.equalsIgnoreCase("withdraw")){
+				userInventory.withdraw();
 				
 			}else{
 				System.out.println("\""+input+"\" was not understood.\nPlease type deposit, inventory, or craft.");

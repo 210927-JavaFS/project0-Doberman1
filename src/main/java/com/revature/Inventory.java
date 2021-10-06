@@ -20,5 +20,10 @@ public class Inventory {
 		
 	}
 	
+	public void withdraw() {
+		System.out.println("withdrewned");
+		
+	}
+	
 
 }

@@ -1,5 +1,9 @@
 package com.revature;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,8 +13,12 @@ public class Main {
 		System.out.println("Welcome to the New World Crafting Bank!\n");
 		System.out.println("Please login or create a new account.\nTo login, enter username and then password.\nTo create a new account, enter new.");
 
+		Logger log = LoggerFactory.getLogger(Main.class);
 		Scanner sc = new Scanner(System.in);
 		String input1 = " ";
+		
+		log.info("Log test");
+		
 		
 		int uniqueIdentifier = -1;
 
@@ -20,6 +28,7 @@ public class Main {
 		
 			if(input1.equalsIgnoreCase("exit")) {
 				break;	
+				
 			}
 			else if(input1.equalsIgnoreCase("new")) {
 				uniqueIdentifier++; 

@@ -10,7 +10,9 @@ import com.revature.controllers.UserController;
 
 public class MenuController {
 
-	Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
+	private static UserController userController = new UserController();
+	
 	
 	public void goMenu() {
 		System.out.println("Welcome to the New World Crafting Bank!\n");
@@ -39,14 +41,8 @@ public class MenuController {
 				
 			}
 			else if(input1.equalsIgnoreCase("new")) {
-				 
-				System.out.println("Please enter a username:");
-				UserController user1 = new UserController();
-				user1.setLogin(sc.nextLine());
-				System.out.println("Thanks, username accepted. Please enter a password:");
-				user1.setPassword(sc.nextLine());
-				System.out.println("New account created!");
-				user1.newUser();
+				userController.newUser(); 
+				
 			}//else if(user name and password entered//){}
 			else{
 				

@@ -39,9 +39,19 @@ public class UserController {
 	
 	public void newUser() {
 		
+		System.out.println("Please enter a username:");
+		String loginID = sc.nextLine();
+		System.out.println("Thanks, username accepted. Please enter a password:");
+		String password = sc.nextLine();
+	
 		UserModel user = new UserModel(loginID, password, userType);
-		
-		UserService userServicer = new UserService(loginID, password, userType);
+			
+		if(UserService.newUser(user)){
+			//did a hotfix here that may cause the incorrect boolean here later changes shown in userService
+			System.out.println("New account created!");
+		}else {
+			System.out.println("Something went wrong. We could not get you registered. Please try again.");
+		}
 		
 	}
 	

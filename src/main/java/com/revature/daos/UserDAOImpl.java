@@ -88,8 +88,8 @@ public class UserDAOImpl implements UserDAO{
 		
 	try(Connection conn = ConnectionUtil.getConnection()){
 				
-				String sql = "INSERT INTO users (userID, username, userpassword, usertype)"
-						+ "VALUES (?,?,?,?);";
+				String sql = "INSERT INTO users (username, userpassword, usertype)"
+						+ "VALUES (?,?,?);";
 				
 				int count = 0;
 				
@@ -99,8 +99,7 @@ public class UserDAOImpl implements UserDAO{
 				statement.setString(++count, user.getUsername());
 				statement.setString(++count, user.getPassword());
 				statement.setInt(++count, user.getUserType());
-			
-				
+							
 				statement.execute();
 				
 				return true;

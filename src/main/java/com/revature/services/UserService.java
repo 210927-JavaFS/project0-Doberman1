@@ -8,27 +8,8 @@ import com.revature.models.UserModel;
 
 public class UserService {
 	
-	String username = new String();
-	String password = new String();
-	int userType;
-	private UserDAO userDao = new UserDAOImpl();
-	
-	public UserService(String username, String password, int userType){
-		this.username = username;
-		this.password = password;
-		this.userType = userType;
-		
-		
-	}
-
-	public void createNewUser(String username, String password, int userType){
-		this.username = username;
-		this.password = password;
-		this.userType = userType;
-		
-		
-	}
-	
+	private static UserDAO userDao = new UserDAOImpl();	
+	//added the static. may cause errors later??
 	
 	public List<UserModel> findAllUsers() {
 		return userDao.findAll();
@@ -39,9 +20,10 @@ public class UserService {
 		
 	}
 	 
-	public boolean newUser(UserModel user) {
+	public static boolean newUser(UserModel user) {
 		return userDao.addUser(user);
 	}
+	//added the static. may cause errors later??
 	
 		
 }

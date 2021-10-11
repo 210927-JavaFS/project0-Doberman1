@@ -1,25 +1,27 @@
-package com.revature;
+package com.revature.controllers;
 
-import java.util.LinkedList;
+//import java.util.LinkedList;
 import java.util.Scanner;
 
-public class User {
+import com.revature.Inventory;
+import com.revature.models.UserModel;
+import com.revature.services.UserService;
+import com.revature.utils.Encrypt;
+
+public class UserController {
 	
 	String loginID;
-	LinkedList<Integer> password = new LinkedList<Integer>();
-	int ID;
+	//LinkedList<Integer> password = new LinkedList<Integer>();
+	String password = new String();
+	int userType = 0;
 	Scanner sc = new Scanner(System.in);
 	String input = " ";
-	Inventory userInventory = new Inventory();	
+	Inventory userInventory = new Inventory();
 	
-	public User() {
+	
+	public UserController() {
 		
 		
-	}
-	
-	public User(int i) {
-		ID = i;
-				
 	}
 	
 	
@@ -33,6 +35,14 @@ public class User {
 		Encrypt encryptor = new Encrypt();
 		password = encryptor.encrypt(s);
 				
+	}
+	
+	public void newUser() {
+		
+		UserModel user = new UserModel(loginID, password, userType);
+		
+		UserService userServicer = new UserService(loginID, password, userType);
+		
 	}
 	
 	public void runUser(){
@@ -65,7 +75,5 @@ public class User {
 		System.out.println("Goodbye!");
 		
 	}
-	
-	
 
 }

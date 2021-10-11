@@ -1,11 +1,12 @@
-package com.revature;
+package com.revature.utils;
 
-import java.util.LinkedList;
+//import java.util.LinkedList;
 
 public class Encrypt {
 
-	private LinkedList<Integer> newpassword = new LinkedList<Integer>();
-	private int counter = 0;
+	//private LinkedList<Integer> newpassword = new LinkedList<Integer>();
+	private String newpassword = new String();
+	//private int counter = 0;
 	
 	public Encrypt() {
 		
@@ -13,7 +14,7 @@ public class Encrypt {
 	}
 	
 	
-	public LinkedList<Integer> encrypt(String s) {
+	/*public LinkedList<Integer> encrypt(String s) {
 		
 		for(char i: s.toCharArray()) {
 			
@@ -37,6 +38,18 @@ public class Encrypt {
 		}
 		
 		return newpassword;
-	}
+	}*/
 	
+	public String encrypt(String s) {
+		
+		for(char i: s.toCharArray()) {
+			
+			i += 5;
+			newpassword = newpassword + i;
+						
+		}
+	
+		
+		return newpassword;
+	}
 }

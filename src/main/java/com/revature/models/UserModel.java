@@ -8,9 +8,7 @@ public class UserModel {
 	private int userType;
 	
 	
-	public UserModel() {
-		
-		
+	public UserModel() {	
 	}
 	
 	
@@ -25,7 +23,7 @@ public class UserModel {
 	public int getUserID() {
 		return userID;
 	}
-
+	
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}

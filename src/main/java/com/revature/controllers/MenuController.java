@@ -2,12 +2,6 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.revature.Main;
-import com.revature.controllers.UserController;
-
 public class MenuController {
 
 	private static Scanner sc = new Scanner(System.in);
@@ -40,8 +34,10 @@ public class MenuController {
 				break;	
 				
 			}
-			else if(input1.equalsIgnoreCase("new")) {
-				userController.newUser(); 
+			else if(input1.equalsIgnoreCase("new")){
+				
+				userController.runUser(userController.newUser());
+				break;
 				
 			}//else if(user name and password entered//){}
 			else{

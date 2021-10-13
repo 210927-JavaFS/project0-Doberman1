@@ -28,6 +28,7 @@ public class UserDAOImpl implements UserDAO{
 			//with a while loop to iterate through all the data. 
 			
 			while(result.next()) {
+				
 				UserModel user = new UserModel();
 				user.setUserID(result.getInt("userID"));
 				user.setUsername(result.getString("username"));
@@ -94,7 +95,6 @@ public class UserDAOImpl implements UserDAO{
 				int count = 0;
 				
 				PreparedStatement statement = conn.prepareStatement(sql);
-				
 				statement.setInt(++count, user.getUserID());
 				statement.setString(++count, user.getUsername());
 				statement.setString(++count, user.getPassword());
@@ -109,5 +109,8 @@ public class UserDAOImpl implements UserDAO{
 			}
 			return false;
 	}
+	
+	
+	
 
 }

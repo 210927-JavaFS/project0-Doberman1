@@ -13,40 +13,44 @@ CREATE TABLE users(
 
 CREATE TABLE craftedinventory(
 	craftedinventoryID serial PRIMARY KEY REFERENCES users (userID),
-	linenleggings integer,
-	linenbonnet integer,
-	linenshoes integer,
-	linenhat integer,
-	linenhandwraps integer,
-	linenshirt integer,
-	linenpants integer,
-	linendress integer,
-	linengloves integer,
-	coarseleatherboots integer,
-	coarseleathergloves integer,
-	coarseleatherpants integer,
-	coarseleathershirt integer,
-	coarseleatherhat integer,
-	irongreataxe integer,
-	ironwarhammer integer,
-	ironspear integer,
-	ironrapier integer,
-	ironhatchet integer,
-	ironroundshield integer,
-	ironlongsword integer,
-	ironplategreaves integer,
-	ironplatehelmet integer,
-	ironplateboots integer,
-	ironplatebreastplate integer,
-	ironplategauntlets integer,
-	ironmusket integer,
-	treatedwoodenbow integer,
-	ironskinningknife integer,
-	ironloggingaxe integer,
-	ironminingpickaxe integer,
-	ironharvestingsickle  integer,
-	treatedwoodenpole integer	
+	linenleggings integer DEFAULT 0,
+	linenbonnet integer DEFAULT 0,
+	linenshoes integer DEFAULT 0,
+	linenhat integer DEFAULT 0,
+	linenhandwraps integer DEFAULT 0,
+	linenshirt integer DEFAULT 0,
+	linenpants integer DEFAULT 0,
+	linendress integer DEFAULT 0,
+	linengloves integer DEFAULT 0,
+	coarseleatherboots integer DEFAULT 0,
+	coarseleathergloves integer DEFAULT 0,
+	coarseleatherpants integer DEFAULT 0,
+	coarseleathershirt integer DEFAULT 0,
+	coarseleatherhat integer DEFAULT 0,
+	irongreataxe integer DEFAULT 0,
+	ironwarhammer integer DEFAULT 0,
+	ironspear integer DEFAULT 0,
+	ironrapier integer DEFAULT 0,
+	ironhatchet integer DEFAULT 0,
+	ironroundshield integer DEFAULT 0,
+	ironlongsword integer DEFAULT 0,
+	ironplategreaves integer DEFAULT 0,
+	ironplatehelmet integer DEFAULT 0,
+	ironplateboots integer DEFAULT 0,
+	ironplatebreastplate integer DEFAULT 0,
+	ironplategauntlets integer DEFAULT 0,
+	ironmusket integer DEFAULT 0,
+	treatedwoodenbow integer DEFAULT 0,
+	ironskinningknife integer DEFAULT 0,
+	ironloggingaxe integer DEFAULT 0,
+	ironminingpickaxe integer DEFAULT 0,
+	ironharvestingsickle  integer DEFAULT 0,
+	treatedwoodenpole integer DEFAULT 0	
 );
+
+--INSERT INTO users (username, userpassword) VALUES ('asdas', 'asfasd');
+--INSERT INTO users (username, userpassword) VALUES ('asdsffsds', 'assdafsaffasd');
+--INSERT INTO craftedinventory (ironwarhammer) VALUES (0);
 
 CREATE TABLE componentinventory(
 	componentinventoryID serial PRIMARY KEY REFERENCES users (userID),
@@ -185,9 +189,24 @@ INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ir
 	VALUES ('linen', 0, 0, 0, 0, 0, 0, 0, 4);
 
 
+--INSERT INTO componentinventory (timber,
+--	coarseleather,
+--	linen,
+--	ironingot,
+--	greenwood,
+--	ironore,
+--	rawhide,
+	--fibers) VALUES (50, 50, 50, 50, 50, 50, 50, 50);
 
+--UPDATE componentinventory SET (timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide,
+--	fibers) = ((SELECT timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide,
+--	fibers FROM componentinventory WHERE 
+--	componentinventoryID = 1) - (SELECT timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide,
+--	fibers FROM craftedgoodsrequirements WHERE goodname = 'ironplatebreastplate'))
+--	WHERE componentinventoryID = 1;
 
-
+--UPDATE componentinventory
+--SET timber = (cgr.timber- (SELECT timber 
 
 
 

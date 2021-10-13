@@ -1,8 +1,8 @@
 package com.revature.models;
 
-public class InventoryModel {
+public class Component {
 
-	private int inventoryID;
+	private int componentinventoryID;
 	private int timber;
 	private int coarseleather;
 	private int linen;
@@ -12,11 +12,14 @@ public class InventoryModel {
 	private int rawhide;
 	private int fibers;
 	
-	public InventoryModel(int inventoryID, int timber, int coarseleather, 
+	public Component() {	
+	}
+	
+	public Component(int timber, int coarseleather, 
 			int linen, int ironingot, int greenwood,
 			int ironore, int rawhide, int fibers) {
 		super();
-		this.inventoryID = inventoryID;
+		//this.inventoryID = inventoryID;
 		this.timber = timber;
 		this.coarseleather = coarseleather;
 		this.linen = linen;
@@ -26,117 +29,78 @@ public class InventoryModel {
 		this.rawhide = rawhide;
 		this.fibers = fibers;
 	}
-	
-	
-	
-	public int getInventoryID() {
-		return inventoryID;
+
+	public int getComponentinventoryID() {
+		return componentinventoryID;
 	}
-
-
-
-	public void setInventoryID(int inventoryID) {
-		this.inventoryID = inventoryID;
+	
+	public void setComponentinventoryID(int componentinventoryID) {
+		this.componentinventoryID = componentinventoryID;
 	}
-
-
 
 	public int getTimber() {
 		return timber;
 	}
 
-
-
 	public void setTimber(int timber) {
 		this.timber = timber;
 	}
-
-
 
 	public int getCoarseleather() {
 		return coarseleather;
 	}
 
-
-
 	public void setCoarseleather(int coarseleather) {
 		this.coarseleather = coarseleather;
 	}
-
-
 
 	public int getLinen() {
 		return linen;
 	}
 
-
-
 	public void setLinen(int linen) {
 		this.linen = linen;
 	}
-
-
 
 	public int getIroningot() {
 		return ironingot;
 	}
 
-
-
 	public void setIroningot(int ironingot) {
 		this.ironingot = ironingot;
 	}
-
-
 
 	public int getGreenwood() {
 		return greenwood;
 	}
 
-
-
 	public void setGreenwood(int greenwood) {
 		this.greenwood = greenwood;
 	}
-
-
 
 	public int getIronore() {
 		return ironore;
 	}
 
-
-
 	public void setIronore(int ironore) {
 		this.ironore = ironore;
 	}
-
-
 
 	public int getRawhide() {
 		return rawhide;
 	}
 
-
-
 	public void setRawhide(int rawhide) {
 		this.rawhide = rawhide;
 	}
-
-
 
 	public int getFibers() {
 		return fibers;
 	}
 
-
-
 	public void setFibers(int fibers) {
 		this.fibers = fibers;
 	}
-
-
-
 
 	@Override
 	public int hashCode() {
@@ -145,7 +109,7 @@ public class InventoryModel {
 		result = prime * result + coarseleather;
 		result = prime * result + fibers;
 		result = prime * result + greenwood;
-		result = prime * result + inventoryID;
+		result = prime * result + componentinventoryID;
 		result = prime * result + ironingot;
 		result = prime * result + ironore;
 		result = prime * result + linen;
@@ -153,8 +117,6 @@ public class InventoryModel {
 		result = prime * result + timber;
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -164,14 +126,14 @@ public class InventoryModel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		InventoryModel other = (InventoryModel) obj;
+		Component other = (Component) obj;
 		if (coarseleather != other.coarseleather)
 			return false;
 		if (fibers != other.fibers)
 			return false;
 		if (greenwood != other.greenwood)
 			return false;
-		if (inventoryID != other.inventoryID)
+		if (componentinventoryID != other.componentinventoryID)
 			return false;
 		if (ironingot != other.ironingot)
 			return false;
@@ -186,17 +148,12 @@ public class InventoryModel {
 		return true;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "InventoryModel [inventoryID=" + inventoryID + ", timber=" + timber + ", coarseleather=" + coarseleather
+		return "Component [inventoryID=" + componentinventoryID + ", timber=" + timber + ", coarseleather=" + coarseleather
 				+ ", linen=" + linen + ", ironingot=" + ironingot + ", greenwood=" + greenwood + ", ironore=" + ironore
 				+ ", rawhide=" + rawhide + ", fibers=" + fibers + "]";
 	}
-
-
-
 	
 	
 	

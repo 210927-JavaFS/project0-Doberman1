@@ -9,6 +9,8 @@ public interface UserDAO {
 	public UserModel findByID(int userID);
 	public boolean updateUser(UserModel user);
 	public boolean addUser(UserModel user);
+	public UserModel findByName(String name);
+	public boolean checkPass(String pass, UserModel user);
 	
 	
 }

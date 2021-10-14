@@ -1,5 +1,12 @@
 package com.revature.models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.revature.utils.ConnectionUtil;
+
 public class UserModel {
 
 	private int userID;
@@ -19,10 +26,41 @@ public class UserModel {
 		this.password = password;
 		this.userType = userType;	
 	}
+	
 
 	public int getUserID() {
-		return userID;
+		
+		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+			String sql = "SELECT userID FROM users WHERE username = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setString(1, this.username);
+			
+			ResultSet result = statement.executeQuery();
+			
+			
+			
+			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
+			//with a while loop to iterate through all the data. 
+			
+			if(result.next()) {
+				
+				userID = (result.getInt("userID"));
+
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//sql = "select userID from users where username = ?;";
+		//	statement.setString(1, user.getUsername());
+			//ResultSet result = statement.executeQuery(sql);
+			
+			//user.setUserID(result.);
+		return userID;		
 	}
+	
 	
 	public void setUserID(int userID) {
 		this.userID = userID;

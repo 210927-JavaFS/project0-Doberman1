@@ -44,12 +44,13 @@ public class Encrypt {
 		
 		for(char i: s.toCharArray()) {
 			
-			i += 5;
-			newpassword = newpassword + i;
+			i = (char) (i + 5);
+			 newpassword = newpassword + i;
 						
 		}
 	
 		
 		return newpassword;
 	}
+	
 }

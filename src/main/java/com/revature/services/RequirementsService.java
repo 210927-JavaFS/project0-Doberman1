@@ -12,7 +12,7 @@ public class RequirementsService {
 	private static RequirementsDAO requirementsDAO = new RequirementsDAOImpl();	
 	
 	
-	public List<Requirements> findAllRequirements() {
+	public static List<Requirements> findAllRequirements() {
 		return requirementsDAO.findAll();
 	}
 

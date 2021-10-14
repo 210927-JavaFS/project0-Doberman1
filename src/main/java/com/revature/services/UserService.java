@@ -19,11 +19,22 @@ public class UserService {
 		return userDao.findByID(ID);
 		
 	}
+	
+	public static UserModel findByName(String name) {
+		return userDao.findByName(name);
+		
+	}
+	
 	 
 	public static boolean newUser(UserModel user) {
 		return userDao.addUser(user);
 	}
 	//added the static. may cause errors later??
+	
+	public static boolean checkPass(String pass, UserModel user) {
+		return userDao.checkPass(pass, user);
+		
+	}
 	
 		
 }

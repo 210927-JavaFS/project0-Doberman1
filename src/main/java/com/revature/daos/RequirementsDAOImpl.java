@@ -27,7 +27,7 @@ public class RequirementsDAOImpl implements RequirementsDAO{
 			while(result.next()) {
 				
 				Requirements requirements = new Requirements();
-				requirements.setGoodname(result.getString("username"));
+				requirements.setGoodname(result.getString("goodname"));
 				requirements.setTimber(result.getInt("timber"));
 				requirements.setCoarseleather(result.getInt("coarseleather"));
 				requirements.setLinen(result.getInt("linen"));

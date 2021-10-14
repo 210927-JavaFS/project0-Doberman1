@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.models.UserModel;
 import com.revature.utils.ConnectionUtil;
+import com.revature.utils.Encrypt;
 
 public class UserDAOImpl implements UserDAO{
 
@@ -77,6 +78,37 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return null;
 	}
+	
+	public UserModel findByName(String name) {
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "SELECT * FROM users WHERE username = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setString(1, name);
+			
+			ResultSet result = statement.executeQuery();
+			
+			UserModel user = new UserModel();
+			
+			
+			
+			if(result.next()) {
+				
+				user.setUserID(result.getInt("userID"));
+				user.setUsername(result.getString("username"));
+				user.setPassword(result.getString("userpassword"));
+				user.setUserType(result.getInt("usertype"));
+
+			}
+			
+			return user;
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	
 	public boolean updateUser(UserModel user) {
@@ -89,18 +121,23 @@ public class UserDAOImpl implements UserDAO{
 		
 	try(Connection conn = ConnectionUtil.getConnection()){
 				
-				String sql = "INSERT INTO users (username, userpassword, usertype)"
-						+ "VALUES (?,?,?);";
+				//String sql = "INSERT INTO users (username, userpassword, usertype)"
+				//		+ "VALUES (?,?,?);";
 				
+				String sql = "call createnewuser(?,?,?); ";
+					
+		
 				int count = 0;
 				
 				PreparedStatement statement = conn.prepareStatement(sql);
-				statement.setInt(++count, user.getUserID());
+				//statement.setInt(++count, user.getUserID());
 				statement.setString(++count, user.getUsername());
 				statement.setString(++count, user.getPassword());
 				statement.setInt(++count, user.getUserType());
 							
 				statement.execute();
+				
+				
 				
 				return true;
 	
@@ -108,6 +145,16 @@ public class UserDAOImpl implements UserDAO{
 				e.printStackTrace();
 			}
 			return false;
+	}
+	
+	public boolean checkPass(String pass, UserModel user) {
+		Encrypt decryptor = new Encrypt();
+		
+		if(decryptor.encrypt(pass).equals(user.getPassword())) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	

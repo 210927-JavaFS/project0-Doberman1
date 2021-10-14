@@ -11,8 +11,13 @@ CREATE TABLE users(
 	usertype Integer
 );
 
+--SELECT userID FROM users WHERE username = 'billybob';
+--UPDATE componentinventory SET timber = 5, linen = 5 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'bob');
+--UPDATE componentinventory SET timber = 777 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'jermy');
+
+
 CREATE TABLE craftedinventory(
-	craftedinventoryID serial PRIMARY KEY REFERENCES users (userID),
+	craftedinventoryID int PRIMARY KEY REFERENCES users (userID),
 	linenleggings integer DEFAULT 0,
 	linenbonnet integer DEFAULT 0,
 	linenshoes integer DEFAULT 0,
@@ -53,15 +58,15 @@ CREATE TABLE craftedinventory(
 --INSERT INTO craftedinventory (ironwarhammer) VALUES (0);
 
 CREATE TABLE componentinventory(
-	componentinventoryID serial PRIMARY KEY REFERENCES users (userID),
-	timber integer,
-	coarseleather integer,
-	linen integer,
-	ironingot integer,
-	greenwood integer,
-	ironore integer,
-	rawhide integer,
-	fibers integer
+	componentinventoryID int PRIMARY KEY REFERENCES users (userID),
+	timber integer DEFAULT 0,
+	coarseleather integer DEFAULT 0,
+	linen integer DEFAULT 0,
+	ironingot integer DEFAULT 0,
+	greenwood integer DEFAULT 0,
+	ironore integer DEFAULT 0,
+	rawhide integer DEFAULT 0,
+	fibers integer DEFAULT 0
 	);
 
 CREATE TABLE craftedgoodsrequirements(
@@ -76,6 +81,16 @@ CREATE TABLE craftedgoodsrequirements(
 	fibers integer
 	
 );
+
+CREATE OR REPLACE PROCEDURE createnewuser(userrname varchar(999), userrpassword varchar(999), userrtype int)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+INSERT INTO users (username, userpassword, usertype) VALUES (userrname, userrpassword, userrtype);
+INSERT INTO componentinventory (componentinventoryID) VALUES ((SELECT userid FROM users WHERE username = userrname));
+INSERT INTO craftedinventory (craftedinventoryID) VALUES ((SELECT userid FROM users WHERE username = userrname));
+END; $$
+
 
 INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
 	VALUES ('linenleggings', 0, 6, 10, 2, 0, 0, 0, 0);
@@ -176,17 +191,17 @@ INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ir
 INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
 	VALUES ('treatedwoodenpole', 12, 3, 2, 0, 0, 0, 0, 0);
 
-INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
-	VALUES ('timber', 0, 0, 0, 0, 4, 0, 0, 0);
+--INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
+	--VALUES ('timber', 0, 0, 0, 0, 4, 0, 0, 0);
 
-INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
-	VALUES ('ironingot', 0, 0, 0, 0, 0, 4, 0, 0);
+--INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
+	--VALUES ('ironingot', 0, 0, 0, 0, 0, 4, 0, 0);
 
-INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
-	VALUES ('coarseleather', 0, 0, 0, 0, 0, 0, 4, 0);
+--INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
+--	VALUES ('coarseleather', 0, 0, 0, 0, 0, 0, 4, 0);
 
-INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
-	VALUES ('linen', 0, 0, 0, 0, 0, 0, 0, 4);
+--INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
+--	VALUES ('linen', 0, 0, 0, 0, 0, 0, 0, 4);
 
 
 --INSERT INTO componentinventory (timber,

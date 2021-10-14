@@ -39,10 +39,13 @@ public class MenuController {
 				userController.runUser(userController.newUser());
 				break;
 				
-			}//else if(user name and password entered//){}
+			}
 			else{
 				
-				System.out.println("Sorry, that's an invalid username.");
+				if(userController.login(input1)) {
+					break;
+				}
+				
 			}
 			
 		}

@@ -4,23 +4,28 @@ import java.util.List;
 
 import com.revature.daos.CraftedDAO;
 import com.revature.daos.CraftedDAOImpl;
+import com.revature.models.Component;
 import com.revature.models.Crafted;
 
 
 public class CraftedService {
 	
 	
-	private static CraftedDAO craftedDao = new CraftedDAOImpl();	
+	private static CraftedDAO craftedDao = new CraftedDAOImpl();
 	//added the static. may cause errors later??
 	
-	public Crafted findByID(int ID){
+	public static List<Crafted> findAllCrafted() {
+		return craftedDao.findAllCrafted();
+	}
+	
+	public static Crafted findByID(int ID){
 		
 		return craftedDao.findByID(ID);
 	}
 
-	public boolean updateCrafted(Crafted crafted) {
+	public static boolean updateCrafted(String name, int userID) {
 		
-		return craftedDao.updateCrafted(crafted);
+		return craftedDao.updateCrafted(name, userID);
 		
 	}
 	 

@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.models.Component;
 import com.revature.models.UserModel;
+import com.revature.services.ComponentService;
 import com.revature.utils.ConnectionUtil;
 
 public class ComponentDAOImpl implements ComponentDAO{
@@ -90,13 +91,53 @@ public class ComponentDAOImpl implements ComponentDAO{
 	public boolean updateComponent(String s, int i, UserModel user) {
 		//*** next thing to do. need to use user loginID to find the right foreign key to insert there
 		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "";
+			Component c = ComponentService.findByID(user.getUserID());
+				
+			if(s.contains("timber")) {
+			sql = "UPDATE componentinventory SET timber = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+			}else if(s.contains("coarseleather")) {
+				sql = "UPDATE componentinventory SET coarseleather = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				
+				i = i+c.getCoarseleather();	
+				
+			}else if(s.contains("linen")) {
+				sql = "UPDATE componentinventory SET linen = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getLinen();
+			}else if(s.contains("ironingot")) {
+				sql = "UPDATE componentinventory SET ironingot = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getIroningot();
+			}else if(s.contains("greenwood")) {
+				sql = "UPDATE componentinventory SET greenwood = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getGreenwood();
+			}else if(s.contains("ironore")) {
+				sql = "UPDATE componentinventory SET ironore = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getIronore();
+			}else if(s.contains("rawhide")) {
+				sql = "UPDATE componentinventory SET rawhide = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getRawhide();
+			}else if(s.contains("fiber")) {
+				sql = "UPDATE componentinventory SET fibers = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+				i = i+c.getFibers();
+			}else {
+				return false;
+			}
 			
-			String sql = "INSERT INTO componentinventory (ironore) VALUES (0);";
+			if(i<0) {
+				System.out.println("You can't withdraw more than you have deposited.");
+				return false;
+			}
+			
+			
+			int count =0;
 			
 			PreparedStatement statement = conn.prepareStatement(sql);
-						
-			statement.execute();
 			
+			//statement.setString(++count, "timber");
+			statement.setInt(++count, i);
+			statement.setString(++count, user.getUsername());
+			//statement = conn.prepareStatement(statement.toString());
+			statement.execute();
 			return true;
 
 		}catch(SQLException e) {

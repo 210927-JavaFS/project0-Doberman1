@@ -6,8 +6,9 @@ import com.revature.models.Crafted;
 
 public interface CraftedDAO {
 
+	public List<Crafted> findAllCrafted();
 	public Crafted findByID(int craftedinventoryID);
-	public boolean updateCrafted(Crafted crafted);
+	public boolean updateCrafted(String name, int userID);
 	public boolean addCrafted();
 	
 }

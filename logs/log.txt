@@ -178,3 +178,8 @@
 00:18:40.487 [] [main] INFO  UserServiceTests - in clearuserservice
 00:18:41.965 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
 00:18:47.026 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+00:41:19.157 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+00:41:25.430 [] [main] INFO  c.r.controllers.MenuController - User input in goMenu():jibob
+00:41:37.986 [] [main] INFO  c.r.controllers.AdminController - User input in AdminController:biggy
+00:41:50.243 [] [main] INFO  c.r.c.ContributorController - User input in ContributorController:inventory
+00:41:55.423 [] [main] INFO  c.r.c.ContributorController - User input in ContributorController:craft

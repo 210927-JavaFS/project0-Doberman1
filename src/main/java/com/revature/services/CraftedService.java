@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.revature.daos.CraftedDAO;
 import com.revature.daos.CraftedDAOImpl;
-import com.revature.models.Component;
 import com.revature.models.Crafted;
 
 
@@ -12,7 +11,7 @@ public class CraftedService {
 	
 	
 	private static CraftedDAO craftedDao = new CraftedDAOImpl();
-	//added the static. may cause errors later??
+
 	
 	public static List<Crafted> findAllCrafted() {
 		return craftedDao.findAllCrafted();

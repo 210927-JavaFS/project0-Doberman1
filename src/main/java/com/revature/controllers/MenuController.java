@@ -2,33 +2,28 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class MenuController {
+	
 
 	private static Scanner sc = new Scanner(System.in);
 	private static UserController userController = new UserController();
 	private static AdminController adminController = new AdminController();
+	private static Logger log = LoggerFactory.getLogger(MenuController.class);
+	
 	
 	public void goMenu() {
 		System.out.println("Welcome to the New World Crafting Bank!\n");
 		System.out.println("Please login or create a new account.\nTo login, enter username and then password.\nTo create a new account, enter new.");
-	
-		//Logger log = LoggerFactory.getLogger(Main.class);
 		
-		String input1 = " ";
-		
-		/* FileHandler fh = new FileHandler("");  
-	    log.addHandler(fh);
-	    SimpleFormatter formatter = new SimpleFormatter();  
-	    fh.setFormatter(formatter);
-	    */
-	
-		//log.info("Log test");
-		
-		
+		String input1 = " ";	
 	
 		while(!(input1.equalsIgnoreCase("exit"))) {
 			
 			input1 = sc.nextLine();
+			log.info("User input in goMenu():"+input1);
 		
 			if(input1.equalsIgnoreCase("exit")) {
 				break;	
@@ -43,7 +38,10 @@ public class MenuController {
 			else if(input1.equalsIgnoreCase("Administrator")) {
 				
 				System.out.println("Password?");
-				if(sc.nextLine().equals("helloTim")) {
+				input1 = sc.nextLine();
+				log.info("User input in goMenu():"+input1);
+				
+				if(input1.equals("helloTim")) {
 					
 					adminController.runUser(adminController.newUser());
 					break;

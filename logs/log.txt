@@ -1,0 +1,180 @@
+22:07:15.298 [] [main] INFO  com.revature.Main - This is a really awesome application
+22:40:16.348 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:40:26.539 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+22:40:31.934 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+22:40:44.064 [] [main] INFO  com.revature.Main - User input in ContributorController:craft
+22:40:51.446 [] [main] INFO  com.revature.Main - User input in CraftedController:iron musket
+22:41:02.631 [] [main] INFO  com.revature.Main - User input in ContributorController:jiojf
+22:41:09.658 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:41:13.318 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:41:18.702 [] [main] INFO  com.revature.Main - User input in ComponentController:inventory
+22:41:22.711 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:41:31.008 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:41:36.571 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+22:41:40.028 [] [main] INFO  com.revature.Main - User input in ComponentController:2000
+22:42:01.283 [] [main] INFO  com.revature.Main - User input in ContributorController:exit
+22:46:57.474 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:47:18.379 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:47:42.965 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:47:47.913 [] [main] INFO  com.revature.Main - User input in goMenu():iojsdzfs
+22:48:41.945 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:48:47.810 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+22:48:53.617 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+22:49:01.670 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:49:12.098 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:49:19.404 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+22:49:24.081 [] [main] INFO  com.revature.Main - User input in ComponentController:2000
+22:49:50.093 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:49:52.611 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+22:49:54.101 [] [main] INFO  com.revature.Main - User input in ComponentController:1
+22:49:59.975 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:50:09.307 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+22:50:11.105 [] [main] INFO  com.revature.Main - User input in ComponentController:-1
+22:50:43.698 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:51:22.174 [] [main] INFO  com.revature.Main - User input in ContributorController:exit
+22:53:22.419 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:53:26.058 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+22:53:30.166 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+22:53:44.397 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:53:53.146 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:53:56.703 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+22:54:00.137 [] [main] INFO  com.revature.Main - User input in ComponentController:300
+22:54:04.189 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:54:29.466 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:54:33.366 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:54:36.203 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+22:54:40.018 [] [main] INFO  com.revature.Main - User input in ComponentController:-33
+22:54:44.310 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:55:27.740 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:55:30.905 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+22:55:33.168 [] [main] INFO  com.revature.Main - User input in ComponentController:9000
+22:55:37.928 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+22:56:01.248 [] [main] INFO  com.revature.Main - User input in ContributorController:deposit
+22:56:05.579 [] [main] INFO  com.revature.Main - User input in ContributorController:exit
+22:56:07.286 [] [main] INFO  com.revature.Main - User input in ComponentController:exit
+22:57:44.661 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+22:57:50.820 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+22:57:53.947 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+22:58:37.344 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+22:58:42.461 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+22:58:44.563 [] [main] INFO  com.revature.Main - User input in ComponentController:sodifj
+22:59:58.331 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:00:06.288 [] [main] INFO  com.revature.Main - User input in ContributorController:deposit
+23:00:10.653 [] [main] INFO  com.revature.Main - User input in ContributorController:iron ore
+23:00:13.772 [] [main] INFO  com.revature.Main - User input in ComponentController:-9000
+23:00:18.206 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:00:23.051 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:00:31.226 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+23:00:36.216 [] [main] INFO  com.revature.Main - User input in ComponentController:-89
+23:00:45.028 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:00:51.776 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+23:00:56.114 [] [main] INFO  com.revature.Main - User input in ComponentController:89
+23:02:13.831 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+23:02:18.924 [] [main] INFO  com.revature.Main - User input in goMenu():jiboby
+23:02:25.164 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+23:02:27.625 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+23:02:32.973 [] [main] INFO  com.revature.Main - User input in ContributorController:deposit
+23:02:36.581 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+23:02:39.292 [] [main] INFO  com.revature.Main - User input in ComponentController:10000
+23:02:43.164 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:02:48.349 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:02:53.576 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+23:02:56.511 [] [main] INFO  com.revature.Main - User input in ComponentController:800
+23:03:01.441 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:03:05.599 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:03:13.648 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+23:03:18.289 [] [main] INFO  com.revature.Main - User input in ComponentController:-800
+23:03:22.156 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:03:28.270 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:03:29.878 [] [main] INFO  com.revature.Main - User input in ContributorController:linen
+23:03:39.062 [] [main] INFO  com.revature.Main - User input in ComponentController:500
+23:03:42.753 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+23:03:50.266 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:03:53.759 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+23:04:00.235 [] [main] INFO  com.revature.Main - User input in ComponentController:8000
+23:04:44.147 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+23:04:47.363 [] [main] INFO  com.revature.Main - User input in goMenu():jibob
+23:04:51.702 [] [main] INFO  com.revature.Main - User input in AdminController:biggy
+23:04:54.988 [] [main] INFO  com.revature.Main - User input in ContributorController:withdraw
+23:04:58.177 [] [main] INFO  com.revature.Main - User input in ContributorController:timber
+23:05:00.115 [] [main] INFO  com.revature.Main - User input in ComponentController:8000
+23:05:04.117 [] [main] INFO  com.revature.Main - User input in ContributorController:inventory
+00:01:44.764 [] [main] INFO  UserServiceTests - In setValues
+00:01:44.771 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:01:46.372 [] [main] INFO  UserServiceTests - In clearValues
+00:01:46.381 [] [main] INFO  UserServiceTests - In setValues
+00:01:46.382 [] [main] INFO  UserServiceTests - In testcheckPass
+00:01:46.385 [] [main] INFO  UserServiceTests - In clearValues
+00:01:46.392 [] [main] INFO  UserServiceTests - In setValues
+00:01:46.393 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:01:47.186 [] [main] INFO  UserServiceTests - In clearValues
+00:01:47.188 [] [main] INFO  UserServiceTests - In setValues
+00:01:47.189 [] [main] INFO  UserServiceTests - In testnewUser
+00:01:47.790 [] [main] INFO  UserServiceTests - In clearValues
+00:01:47.793 [] [main] INFO  UserServiceTests - In setValues
+00:01:47.793 [] [main] INFO  UserServiceTests - In testfindByID
+00:01:47.794 [] [main] INFO  UserServiceTests - In clearValues
+00:01:47.796 [] [main] INFO  UserServiceTests - In setValues
+00:01:47.797 [] [main] INFO  UserServiceTests - In testfindByName
+00:01:48.609 [] [main] INFO  UserServiceTests - In clearValues
+00:01:48.612 [] [main] INFO  UserServiceTests - in clearuserservice
+00:17:03.968 [] [main] INFO  UserServiceTests - In setValues
+00:17:03.976 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:17:05.515 [] [main] INFO  UserServiceTests - In clearValues
+00:17:05.534 [] [main] INFO  UserServiceTests - In setValues
+00:17:05.535 [] [main] INFO  UserServiceTests - In testcheckPass
+00:17:05.537 [] [main] INFO  UserServiceTests - In clearValues
+00:17:05.543 [] [main] INFO  UserServiceTests - In setValues
+00:17:05.544 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:17:06.366 [] [main] INFO  UserServiceTests - In clearValues
+00:17:06.368 [] [main] INFO  UserServiceTests - In setValues
+00:17:06.369 [] [main] INFO  UserServiceTests - In testnewUser
+00:17:06.707 [] [main] INFO  UserServiceTests - In clearValues
+00:17:06.710 [] [main] INFO  UserServiceTests - In setValues
+00:17:06.710 [] [main] INFO  UserServiceTests - In testfindByID
+00:17:06.710 [] [main] INFO  UserServiceTests - In clearValues
+00:17:06.713 [] [main] INFO  UserServiceTests - In setValues
+00:17:06.713 [] [main] INFO  UserServiceTests - In testfindByName
+00:17:07.550 [] [main] INFO  UserServiceTests - In clearValues
+00:17:07.553 [] [main] INFO  UserServiceTests - in clearuserservice
+00:17:23.469 [] [main] INFO  UserServiceTests - In setValues
+00:17:23.477 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:17:24.935 [] [main] INFO  UserServiceTests - In clearValues
+00:17:24.944 [] [main] INFO  UserServiceTests - In setValues
+00:17:24.945 [] [main] INFO  UserServiceTests - In testcheckPass
+00:17:24.947 [] [main] INFO  UserServiceTests - In clearValues
+00:17:24.952 [] [main] INFO  UserServiceTests - In setValues
+00:17:24.953 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:17:25.851 [] [main] INFO  UserServiceTests - In clearValues
+00:17:25.856 [] [main] INFO  UserServiceTests - In setValues
+00:17:25.857 [] [main] INFO  UserServiceTests - In testnewUser
+00:17:26.238 [] [main] INFO  UserServiceTests - In clearValues
+00:17:26.242 [] [main] INFO  UserServiceTests - In setValues
+00:17:26.242 [] [main] INFO  UserServiceTests - In testfindByID
+00:17:26.242 [] [main] INFO  UserServiceTests - In clearValues
+00:17:26.245 [] [main] INFO  UserServiceTests - In setValues
+00:17:26.245 [] [main] INFO  UserServiceTests - In testfindByName
+00:17:27.044 [] [main] INFO  UserServiceTests - In clearValues
+00:17:27.047 [] [main] INFO  UserServiceTests - in clearuserservice
+00:18:16.116 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+00:18:36.704 [] [main] INFO  UserServiceTests - In setValues
+00:18:36.711 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:18:38.421 [] [main] INFO  UserServiceTests - In clearValues
+00:18:38.433 [] [main] INFO  UserServiceTests - In setValues
+00:18:38.433 [] [main] INFO  UserServiceTests - In testcheckPass
+00:18:38.436 [] [main] INFO  UserServiceTests - In clearValues
+00:18:38.443 [] [main] INFO  UserServiceTests - In setValues
+00:18:38.444 [] [main] INFO  UserServiceTests - In testfindAllUsers
+00:18:39.357 [] [main] INFO  UserServiceTests - In clearValues
+00:18:39.359 [] [main] INFO  UserServiceTests - In setValues
+00:18:39.359 [] [main] INFO  UserServiceTests - In testnewUser
+00:18:39.704 [] [main] INFO  UserServiceTests - In clearValues
+00:18:39.707 [] [main] INFO  UserServiceTests - In setValues
+00:18:39.708 [] [main] INFO  UserServiceTests - In testfindByID
+00:18:39.708 [] [main] INFO  UserServiceTests - In clearValues
+00:18:39.711 [] [main] INFO  UserServiceTests - In setValues
+00:18:39.712 [] [main] INFO  UserServiceTests - In testfindByName
+00:18:40.485 [] [main] INFO  UserServiceTests - In clearValues
+00:18:40.487 [] [main] INFO  UserServiceTests - in clearuserservice
+00:18:41.965 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============
+00:18:47.026 [] [main] INFO  com.revature.Main - =========New Run Through The APP=============

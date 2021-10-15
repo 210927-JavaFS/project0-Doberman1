@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.models.Component;
+
 import com.revature.models.Crafted;
-import com.revature.services.ComponentService;
+
 import com.revature.services.CraftedService;
 import com.revature.utils.ConnectionUtil;
 
@@ -18,7 +18,7 @@ public class CraftedDAOImpl implements CraftedDAO{
 	
 	
 	public List<Crafted> findAllCrafted() {
-		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+		try(Connection conn = ConnectionUtil.getConnection()){ 
 			String sql = "SELECT * FROM craftedinventory;";
 			
 			Statement statement = conn.createStatement();
@@ -26,9 +26,7 @@ public class CraftedDAOImpl implements CraftedDAO{
 			ResultSet result = statement.executeQuery(sql);
 			
 			List<Crafted> list = new ArrayList<>();
-			
-			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-			//with a while loop to iterate through all the data. 
+			 
 			
 			while(result.next()) {
 				
@@ -73,7 +71,8 @@ public class CraftedDAOImpl implements CraftedDAO{
 			return list;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -136,7 +135,8 @@ public class CraftedDAOImpl implements CraftedDAO{
 			return crafted;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -270,7 +270,8 @@ public class CraftedDAOImpl implements CraftedDAO{
 			return true;
 
 		}catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		
 		
@@ -291,7 +292,8 @@ public class CraftedDAOImpl implements CraftedDAO{
 					return true;
 		
 				}catch(SQLException e) {
-					e.printStackTrace();
+					//e.printStackTrace();
+					System.out.println("Some input was invalid.");
 				}
 				return false;
 		}

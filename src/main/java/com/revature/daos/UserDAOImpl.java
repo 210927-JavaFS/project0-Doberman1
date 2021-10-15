@@ -16,7 +16,7 @@ public class UserDAOImpl implements UserDAO{
 
 	
 	public List<UserModel> findAll() {
-		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM users;";
 			
 			Statement statement = conn.createStatement();
@@ -24,9 +24,6 @@ public class UserDAOImpl implements UserDAO{
 			ResultSet result = statement.executeQuery(sql);
 			
 			List<UserModel> list = new ArrayList<>();
-			
-			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-			//with a while loop to iterate through all the data. 
 			
 			while(result.next()) {
 				
@@ -41,14 +38,15 @@ public class UserDAOImpl implements UserDAO{
 			return list;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
 
 	
 	public UserModel findByID(int userID) {
-		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM users WHERE userID = ?;";
 			
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -59,9 +57,7 @@ public class UserDAOImpl implements UserDAO{
 			
 			UserModel user = new UserModel();
 			
-			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-			//with a while loop to iterate through all the data. 
-			
+		
 			if(result.next()) {
 				
 				user.setUserID(result.getInt("userID"));
@@ -74,7 +70,8 @@ public class UserDAOImpl implements UserDAO{
 			return user;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -105,7 +102,8 @@ public class UserDAOImpl implements UserDAO{
 			return user;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -160,7 +158,8 @@ public class UserDAOImpl implements UserDAO{
 				return true;
 	
 			}catch(SQLException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+				System.out.println("Some input was invalid.");
 			}
 			return false;
 	}

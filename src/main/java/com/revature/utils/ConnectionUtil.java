@@ -6,18 +6,18 @@ import java.sql.*;
 public class ConnectionUtil {
 
 	public static Connection getConnection() throws SQLException {
-		// For many frameworks using JDBC or operating with JDBC it is necessary to
-		// "register" the driver
-		// you are using to make the framework aware of it.
+	
+		
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Trouble connecting to the database.");
 		}
 		
 		String url = "jdbc:postgresql://mydatabaseinstance.czhcyr5nyzgr.us-east-2.rds.amazonaws.com:5432/mydatabase";
-		String username = "postgres"; //It is possible to use env variables to hide this information
-		String password = "pastword"; //you would access them with System.getenv("var-name");
+		String username = "postgres";
+		String password = "pastword"; 
 		
 		return DriverManager.getConnection(url, username, password);
 	}

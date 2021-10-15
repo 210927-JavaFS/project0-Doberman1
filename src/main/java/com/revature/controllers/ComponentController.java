@@ -2,6 +2,9 @@ package com.revature.controllers;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.UserModel;
 import com.revature.services.ComponentService;
 import com.revature.utils.StringUtil;
@@ -9,6 +12,8 @@ import com.revature.utils.StringUtil;
 
 public class ComponentController {
 	
+	
+	private static Logger log = LoggerFactory.getLogger(ComponentController.class);
 	int amount;
 	Scanner sc = new Scanner(System.in);
 	String input;
@@ -21,6 +26,7 @@ public class ComponentController {
 	System.out.println("How much would you like to deposit?");	
 	
 		input = sc.nextLine();
+		log.info("User input in ComponentController:"+input);
 		
 		
 		//if(input.contains(".*\\d.*")){}
@@ -61,6 +67,7 @@ public boolean withdraw(String item, UserModel user) {
 	System.out.println("How much would you like to withdraw?");	
 	
 		input = sc.nextLine();
+		log.info("User input in ComponentController:"+input);
 		
 		
 		//if(input.contains(".*\\d.*")){

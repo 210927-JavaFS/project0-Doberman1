@@ -3,6 +3,9 @@ package com.revature.controllers;
 //import java.util.LinkedList;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.Component;
 import com.revature.models.Crafted;
 import com.revature.models.UserModel;
@@ -13,6 +16,7 @@ import com.revature.utils.Encrypt;
 
 public class UserController {
 	
+	private static Logger log = LoggerFactory.getLogger(UserController.class);
 	String loginID;
 	//LinkedList<Integer> password = new LinkedList<Integer>();
 	String password;
@@ -48,14 +52,15 @@ public class UserController {
 		
 		System.out.println("Please enter a username:");
 		String loginID = sc.nextLine();
+		log.info("User input in UserController:"+loginID);
 		System.out.println("Thanks, username accepted. Please enter a password:");
 		String password = sc.nextLine();
+		log.info("User input in UserController:"+password);
 		password = encryptor.encrypt(password);
 	
 		UserModel user = new UserModel(loginID, password, userType);	
 			
-		if(UserService.newUser(user)){// && ComponentService.addComponent() && CraftedService.addCrafted()){
-			//did a hotfix here that may cause the incorrect boolean here later changes shown in userService
+		if(UserService.newUser(user)){
 			
 			
 			System.out.println("New account created!");
@@ -76,12 +81,14 @@ public class UserController {
 		
 		while(!(input.equalsIgnoreCase("exit"))){
 			input = sc.nextLine();
+			log.info("User input in UserController:"+input);
 			if(input.equalsIgnoreCase("exit")) {
 				break;
 			}else if(input.equalsIgnoreCase("deposit")){
 				
 				System.out.println("What would you like to deposit?\nYou can deposit timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide or fibers.");
 				input= sc.nextLine();
+				log.info("User input in UserController:"+input);
 				if(components.deposit(input, user)) {
 					System.out.println("Your deposit was successful!");
 					
@@ -103,8 +110,9 @@ public class UserController {
 				
 			}else if(input.equalsIgnoreCase("withdraw")){
 				
-				System.out.println("What would you like to withdraw?\nYou can withdraw timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide, fibers\n or anything you've crafted.");
+				System.out.println("What would you like to withdraw?\nYou can withdraw timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide or fibers.");
 				input= sc.nextLine();
+				log.info("User input in UserController:"+input);
 				
 				if(components.withdraw(input, user)) {
 					System.out.println("Your withdrawal was successful!");
@@ -137,6 +145,7 @@ public class UserController {
 		}else{
 			System.out.println("Please enter your password.");
 			String pass = sc.nextLine();
+			log.info("User input in UserController:"+pass);
 			if(UserService.checkPass(pass, user)) {
 				if(user.getUserType()==2) {
 					

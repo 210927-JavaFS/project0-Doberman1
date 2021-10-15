@@ -1,5 +1,8 @@
 package com.revature.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.Component;
 import com.revature.models.Crafted;
 import com.revature.models.Requirements;
@@ -10,6 +13,7 @@ import com.revature.services.RequirementsService;
 import com.revature.utils.StringUtil;
 
 public class ContributorController extends UserController{
+	private static Logger log = LoggerFactory.getLogger(ContributorController.class);
 	int userType = 1;
 	
 	
@@ -21,12 +25,14 @@ public class ContributorController extends UserController{
 		
 		while(!(input.equalsIgnoreCase("exit"))){
 			input = sc.nextLine();
+			log.info("User input in ContributorController:"+input);
 			if(input.equalsIgnoreCase("exit")) {
 				break;
 			}else if(input.equalsIgnoreCase("deposit")){
 				
 				System.out.println("What would you like to deposit?\nYou can deposit timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide or fibers.");
 				input= sc.nextLine();
+				log.info("User input in ContributorController:"+input);
 				if(components.deposit(input, user)) {
 					System.out.println("Your deposit was successful!");
 					
@@ -48,8 +54,9 @@ public class ContributorController extends UserController{
 				
 			}else if(input.equalsIgnoreCase("withdraw")){
 				
-				System.out.println("What would you like to withdraw?\nYou can withdraw timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide, fibers\n or anything you've crafted.");
+				System.out.println("What would you like to withdraw?\nYou can withdraw timber, coarse leather, linen,\n iron ingots, greenwood, iron ore, rawhide or fibers.");
 				input= sc.nextLine();
+				log.info("User input in ContributorController:"+input);
 				
 				if(components.withdraw(input, user)) {
 					System.out.println("Your withdrawal was successful!");
@@ -67,6 +74,7 @@ public class ContributorController extends UserController{
 			}else if(input.equalsIgnoreCase("update")) {
 				System.out.println("What item's crafting requirements would you like to update?");
 				String input = sc.nextLine();
+				log.info("User input in ContributorController:"+input);
 				System.out.println("Please go through the update wizard:.");
 				String s = input;
 				s = StringUtil.cleanString(s);

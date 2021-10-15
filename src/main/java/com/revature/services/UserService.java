@@ -9,7 +9,6 @@ import com.revature.models.UserModel;
 public class UserService {
 	
 	private static UserDAO userDao = new UserDAOImpl();	
-	//added the static. may cause errors later??
 	
 	public static List<UserModel> findAllUsers() {
 		return userDao.findAll();
@@ -24,12 +23,9 @@ public class UserService {
 		return userDao.findByName(name);
 		
 	}
-	
-	 
 	public static boolean newUser(UserModel user) {
 		return userDao.addUser(user);
 	}
-	//added the static. may cause errors later??
 	
 	public static boolean checkPass(String pass, UserModel user) {
 		return userDao.checkPass(pass, user);

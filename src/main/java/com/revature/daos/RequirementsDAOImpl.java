@@ -9,10 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.revature.Main;
 import com.revature.models.Requirements;
 import com.revature.utils.ConnectionUtil;
 
 public class RequirementsDAOImpl implements RequirementsDAO{
+	
+	private static Logger log = LoggerFactory.getLogger(Main.class);
 	
 	public List<Requirements> findAll() {
 		try(Connection conn = ConnectionUtil.getConnection()){ 
@@ -43,14 +49,15 @@ public class RequirementsDAOImpl implements RequirementsDAO{
 			return list;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
 
 	
 	public Requirements findByName(String goodname) {
-		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM craftedgoodsrequirements WHERE goodname = ?;";
 			
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -60,9 +67,6 @@ public class RequirementsDAOImpl implements RequirementsDAO{
 			ResultSet result = statement.executeQuery();
 			
 			Requirements requirements = new Requirements();
-			
-			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-			//with a while loop to iterate through all the data. 
 			
 			if(result.next()) {
 				
@@ -81,7 +85,8 @@ public class RequirementsDAOImpl implements RequirementsDAO{
 			return requirements;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -108,33 +113,41 @@ try(Connection conn = ConnectionUtil.getConnection()){
 			
 			System.out.println("How much timber does it now need?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("What about coarse leather?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Linen?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Iron ingots?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Greenwood?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Iron ore?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Raw hide?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			System.out.println("Fibers?");
 			input = sc.nextLine();
+			log.info("User input in RequirementsDAOImpl:"+input);
 			statement.setInt(++count, Integer.parseInt(input));
 			}
 	        catch (NumberFormatException ex){
 	            System.out.println("Please only enter a number.");
 	            
-	            ex.printStackTrace();
+	            //ex.printStackTrace();
 	            return false;
 	        }
 			
@@ -147,7 +160,8 @@ try(Connection conn = ConnectionUtil.getConnection()){
 			return true;
 
 		}catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return false;
 	}

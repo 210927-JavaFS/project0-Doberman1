@@ -16,7 +16,7 @@ import com.revature.utils.ConnectionUtil;
 public class ComponentDAOImpl implements ComponentDAO{
 	
 	public List<Component> findAll() {
-		try(Connection conn = ConnectionUtil.getConnection()){ //try-with-resources 
+		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "SELECT * FROM componentinventory;";
 			
 			Statement statement = conn.createStatement();
@@ -25,8 +25,6 @@ public class ComponentDAOImpl implements ComponentDAO{
 			
 			List<Component> list = new ArrayList<>();
 			
-			//ResultSets have a cursor (similar to Scanner or other I/O classes) that can be used 
-			//with a while loop to iterate through all the data. 
 			
 			while(result.next()) {
 				
@@ -46,7 +44,8 @@ public class ComponentDAOImpl implements ComponentDAO{
 			return list;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
@@ -82,24 +81,26 @@ public class ComponentDAOImpl implements ComponentDAO{
 			return component;
 			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		return null;
 	}
 
 	
 	public boolean updateComponent(String s, int i, UserModel user) {
-		//*** next thing to do. need to use user loginID to find the right foreign key to insert there
+		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			String sql = "";
 			Component c = ComponentService.findByID(user.getUserID());
 				
 			if(s.contains("timber")) {
 			sql = "UPDATE componentinventory SET timber = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
+			i = i+ c.getTimber();
 			}else if(s.contains("coarseleather")) {
 				sql = "UPDATE componentinventory SET coarseleather = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
 				
-				i = i+c.getCoarseleather();	
+				i = i+ c.getCoarseleather();	
 				
 			}else if(s.contains("linen")) {
 				sql = "UPDATE componentinventory SET linen = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
@@ -112,7 +113,7 @@ public class ComponentDAOImpl implements ComponentDAO{
 				i = i+c.getGreenwood();
 			}else if(s.contains("ironore")) {
 				sql = "UPDATE componentinventory SET ironore = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
-				i = i+c.getIronore();
+				i= i+c.getIronore();
 			}else if(s.contains("rawhide")) {
 				sql = "UPDATE componentinventory SET rawhide = ? WHERE componentinventoryID = (SELECT userID FROM users WHERE username = ?);";
 				i = i+c.getRawhide();
@@ -141,7 +142,8 @@ public class ComponentDAOImpl implements ComponentDAO{
 			return true;
 
 		}catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		
 		
@@ -162,7 +164,8 @@ public class ComponentDAOImpl implements ComponentDAO{
 				return true;
 	
 			}catch(SQLException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+				System.out.println("Some input was invalid.");
 			}
 			return false;
 	}

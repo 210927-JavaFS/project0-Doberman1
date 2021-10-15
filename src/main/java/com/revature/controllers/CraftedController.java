@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.models.Component;
 import com.revature.models.Crafted;
 import com.revature.models.Requirements;
@@ -13,6 +16,8 @@ import com.revature.services.RequirementsService;
 import com.revature.utils.StringUtil;
 
 public class CraftedController {
+	
+	private static Logger log = LoggerFactory.getLogger(CraftedController.class);
 
 	
 	public void craft(int userID) {
@@ -63,6 +68,7 @@ public class CraftedController {
 				
 				System.out.println("If you'd like to craft this item, type its name. Otherwise, just type menu.");
 				input = sc.nextLine();
+				log.info("User input in CraftedController:"+input);
 				input2 = StringUtil.cleanString(input);
 				if(CraftedService.updateCrafted(input2, userID)) {
 					System.out.println("You've successfully added your "+input+" to your history!");
@@ -77,6 +83,7 @@ public class CraftedController {
 			}else {
 				System.out.println("If you'd like to craft one of these items, type its name. Otherwise, just type menu.");
 				input = sc.nextLine();
+				log.info("User input in CraftedController:"+input);
 				input2 = StringUtil.cleanString(input);
 				if(CraftedService.updateCrafted(input2, userID)) {
 					System.out.println("You've successfully added your "+input+" to your history!");
@@ -85,6 +92,7 @@ public class CraftedController {
 					System.out.println("Sorry, "+input+" was not understood. Returning to menu.");
 				}
 			}
+		sc.close();
 	}
 	
 	public String getHistory(Crafted c) {

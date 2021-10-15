@@ -50,7 +50,8 @@ public class UserModel {
 
 			}
 		}catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("Some input was invalid.");
 		}
 		
 		//sql = "select userID from users where username = ?;";

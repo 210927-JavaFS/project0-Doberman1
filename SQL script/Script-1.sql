@@ -11,10 +11,6 @@ CREATE TABLE users(
 	usertype Integer
 );
 
---SELECT userID FROM users WHERE username = 'billybob';
---UPDATE componentinventory SET timber = 5, linen = 5 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'bob');
---UPDATE componentinventory SET timber = 777 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'jermy');
-
 
 CREATE TABLE craftedinventory(
 	craftedinventoryID int PRIMARY KEY REFERENCES users (userID),
@@ -53,9 +49,6 @@ CREATE TABLE craftedinventory(
 	treatedwoodenpole integer DEFAULT 0	
 );
 
---INSERT INTO users (username, userpassword) VALUES ('asdas', 'asfasd');
---INSERT INTO users (username, userpassword) VALUES ('asdsffsds', 'assdafsaffasd');
---INSERT INTO craftedinventory (ironwarhammer) VALUES (0);
 
 CREATE TABLE componentinventory(
 	componentinventoryID int PRIMARY KEY REFERENCES users (userID),
@@ -81,6 +74,7 @@ CREATE TABLE craftedgoodsrequirements(
 	fibers integer
 	
 );
+
 
 CREATE OR REPLACE PROCEDURE createnewuser(userrname varchar(999), userrpassword varchar(999), userrtype int)
 LANGUAGE plpgsql
@@ -190,6 +184,19 @@ INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ir
 
 INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
 	VALUES ('treatedwoodenpole', 12, 3, 2, 0, 0, 0, 0, 0);
+
+--SELECT userID FROM users WHERE username = 'billybob';
+--UPDATE componentinventory SET timber = 5, linen = 5 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'bob');
+--UPDATE componentinventory SET timber = 777 WHERE componentinventoryID = (SELECT userID FROM users WHERE username = 'jermy');
+
+
+--UPDATE craftedgoodsrequirements SET timber = 1, coarseleather = 2, linen = 3, ironingot =  4, greenwood = 5, ironore =6 , rawhide=7, fibers=8 
+--WHERE goodname = 'linenleggings';
+--UPDATE users SET usertype = 1 WHERE username = ?;
+
+--INSERT INTO users (username, userpassword) VALUES ('asdas', 'asfasd');
+--INSERT INTO users (username, userpassword) VALUES ('asdsffsds', 'assdafsaffasd');
+--INSERT INTO craftedinventory (ironwarhammer) VALUES (0);
 
 --INSERT INTO craftedgoodsrequirements (goodname, timber, coarseleather, linen, ironingot, greenwood, ironore, rawhide, fibers)
 	--VALUES ('timber', 0, 0, 0, 0, 4, 0, 0, 0);

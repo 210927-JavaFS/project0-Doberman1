@@ -27,7 +27,6 @@ public class ComponentService {
 		
 	}
 	
-	
 	public static boolean updateComponent(String s, int i, UserModel user) {
 		return componentDao.updateComponent(s, i, user);
 	}

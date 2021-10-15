@@ -8,6 +8,6 @@ public interface RequirementsDAO {
 	
 	public List<Requirements> findAll();
 	public Requirements findByName(String goodname);
-	public boolean updateRequirements(Requirements requirements);
+	public boolean updateRequirements(String goodname);
 
 }

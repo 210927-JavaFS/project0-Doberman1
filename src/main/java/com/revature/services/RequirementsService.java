@@ -21,8 +21,8 @@ public class RequirementsService {
 		
 	}
 	 
-	public static boolean updateRequirements(Requirements requirement) {
-		return requirementsDAO.updateRequirements(requirement);
+	public static boolean updateRequirements(String goodname) {
+		return requirementsDAO.updateRequirements(goodname);
 	}
 	
 }

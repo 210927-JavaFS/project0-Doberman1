@@ -1,78 +1,23 @@
 package com.revature.controllers;
 
-//import java.util.LinkedList;
-import java.util.Scanner;
-
 import com.revature.models.Component;
 import com.revature.models.Crafted;
+import com.revature.models.Requirements;
 import com.revature.models.UserModel;
 import com.revature.services.ComponentService;
 import com.revature.services.CraftedService;
-import com.revature.services.UserService;
-import com.revature.utils.Encrypt;
+import com.revature.services.RequirementsService;
+import com.revature.utils.StringUtil;
 
-public class UserController {
-	
-	String loginID;
-	//LinkedList<Integer> password = new LinkedList<Integer>();
-	String password;
-	int userType = 0;
-	Scanner sc = new Scanner(System.in);
-	String input = " ";
-	ComponentController components = new ComponentController();
-	CraftedController crafted = new CraftedController();
-	MenuController menu = new MenuController();
-	Encrypt encryptor = new Encrypt();
+public class ContributorController extends UserController{
+	int userType = 1;
 	
 	
-	
-	public UserController() {
-		
-		
-	}
-	
-	
-	public void setLogin(String s) {
-		loginID = s; 
-		
-	}
-	
-	public void setPassword(String s) {
-		
-		Encrypt encryptor = new Encrypt();
-		password = encryptor.encrypt(s);
-				
-	}
-	
-	public UserModel newUser() {
-		
-		System.out.println("Please enter a username:");
-		String loginID = sc.nextLine();
-		System.out.println("Thanks, username accepted. Please enter a password:");
-		String password = sc.nextLine();
-		password = encryptor.encrypt(password);
-	
-		UserModel user = new UserModel(loginID, password, userType);	
-			
-		if(UserService.newUser(user)){// && ComponentService.addComponent() && CraftedService.addCrafted()){
-			//did a hotfix here that may cause the incorrect boolean here later changes shown in userService
-			
-			
-			System.out.println("New account created!");
-				
-			return (user); 
-			
-			
-		}else {
-			System.out.println("Something went wrong. We could not get you registered. Please try again.");
-			return null;
-		}
-		
-	}
-	
-	public void runUser(UserModel user){
+	public void runContributor(UserModel user){
 		System.out.println("You can deposit resources, withdraw resources, check your inventory,\nsee what you can make with your current inventory or check your crafting history.");
 		System.out.println("To deposit, type deposit.\nTo withdraw, type withdraw.\nTo check your inventory, type inventory.\nTo see what you can craft, type craft.\nTo check your history, type history.\nTo exit the bank, type exit.");
+		System.out.println("As a contributor, you can also check items' crafting requirements. To do this, type requirements.");
+		System.out.println("Lastly, you can update items' crafting requirements. To do this, type update.");
 		
 		while(!(input.equalsIgnoreCase("exit"))){
 			input = sc.nextLine();
@@ -119,9 +64,29 @@ public class UserController {
 				cr= CraftedService.findByID(user.getUserID());
 				System.out.println(crafted.getHistory(cr));
 				
-			}else{
+			}else if(input.equalsIgnoreCase("update")) {
+				System.out.println("What item's crafting requirements would you like to update?");
+				String input = sc.nextLine();
+				System.out.println("Please go through the update wizard:.");
+				String s = input;
+				s = StringUtil.cleanString(s);
+				if(RequirementsService.updateRequirements(s)) {
+					System.out.println("You successfully updated the requirements for "+input+".");
+					
+				}else {
+					System.out.println("Unfortunately, your update to "+input+" has failed. Returning to menu.");
+					
+				}
+			}else if(input.equalsIgnoreCase("requirements")) {
+				
+				for(Requirements i : RequirementsService.findAllRequirements()) {
+					System.out.println(i);
+					}
+				
+			}
+			else{
 			
-				System.out.println("\""+input+"\" was not understood.\nPlease type deposit, withdraw, inventory, or craft.");
+				System.out.println("\""+input+"\" was not understood.\nPlease type deposit, withdraw, inventory, craft or update.");
 				
 			}				
 			
@@ -129,26 +94,5 @@ public class UserController {
 		
 	}
 	
-	public boolean login(String username) {
-		UserModel user = UserService.findByName(username);
-		if(user.getUserID() == 0) {
-		System.out.println("Sorry, that username is invalid. Please Try again.");
-		return false;
-		}else{
-			System.out.println("Please enter your password.");
-			String pass = sc.nextLine();
-			if(UserService.checkPass(pass, user)) {
-				if(user.getUserType()==2) {
-					
-				}
-				
-				runUser(user);
-				return true;
-			}
-			System.out.println("Password incorrect. Please enter your username again.");
-		}
-		
-		return false;
-	}
-
+	
 }

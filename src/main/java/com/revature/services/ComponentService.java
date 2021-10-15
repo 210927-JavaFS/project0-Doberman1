@@ -22,7 +22,7 @@ public class ComponentService {
 	public static Component findByID(int ID){
 		Component c = componentDao.findByID(ID);
 		
-		String s = "Your component inventory includes:\n"+c.getCoarseleather()+" coarse leather\n"+c.getFibers()+" fiber\n"+c.getGreenwood()+" greenwood\n"+c.getIroningot()+" iron ingots\n"+c.getIronore()+" iron ore\n"+c.getLinen()+" linen\n"+c.getRawhide()+" raw hide\n"+c.getTimber()+" timber";
+		//String s = "Your component inventory includes:\n"+c.getCoarseleather()+" coarse leather\n"+c.getFibers()+" fiber\n"+c.getGreenwood()+" greenwood\n"+c.getIroningot()+" iron ingots\n"+c.getIronore()+" iron ore\n"+c.getLinen()+" linen\n"+c.getRawhide()+" raw hide\n"+c.getTimber()+" timber";
 		return c;
 		
 	}

@@ -111,9 +111,27 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	
-	public boolean updateUser(UserModel user) {
+	public boolean changeType(String name, int type) {
 		
-		return false;
+		
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			String sql = "UPDATE users SET usertype = ? WHERE username = ?;";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			statement.setInt(1, type);
+			statement.setString(2, name);
+			
+			statement.execute();
+			
+			return true;
+			
+		}catch (SQLException e) {
+			//e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 	

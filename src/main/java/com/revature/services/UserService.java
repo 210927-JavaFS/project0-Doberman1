@@ -11,7 +11,7 @@ public class UserService {
 	private static UserDAO userDao = new UserDAOImpl();	
 	//added the static. may cause errors later??
 	
-	public List<UserModel> findAllUsers() {
+	public static List<UserModel> findAllUsers() {
 		return userDao.findAll();
 	}
 
@@ -34,6 +34,11 @@ public class UserService {
 	public static boolean checkPass(String pass, UserModel user) {
 		return userDao.checkPass(pass, user);
 		
+	}
+	
+	public static boolean changeType(String name, int type) {
+		
+		return userDao.changeType(name, type);
 	}
 	
 		

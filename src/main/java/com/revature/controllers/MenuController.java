@@ -6,7 +6,7 @@ public class MenuController {
 
 	private static Scanner sc = new Scanner(System.in);
 	private static UserController userController = new UserController();
-	
+	private static AdminController adminController = new AdminController();
 	
 	public void goMenu() {
 		System.out.println("Welcome to the New World Crafting Bank!\n");
@@ -40,9 +40,20 @@ public class MenuController {
 				break;
 				
 			}
+			else if(input1.equalsIgnoreCase("Administrator")) {
+				
+				System.out.println("Password?");
+				if(sc.nextLine().equals("helloTim")) {
+					
+					adminController.runUser(adminController.newUser());
+					break;
+				}
+				System.out.println("Wrong password.");
+				System.out.println("Please login or create a new account.\nTo login, enter username and then password.\nTo create a new account, enter new.");
+			}
 			else{
 				
-				if(userController.login(input1)) {
+				if(adminController.login(input1)) {
 					break;
 				}
 				
